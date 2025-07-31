@@ -37,11 +37,11 @@ const sortOptions = [
 ];
 
 export const SortPanel: React.FC<Props> = ({ sortCriteria, setSortCriteria, isOpen, onClose }) => {
-  const [selectedField, setSelectedField] = useState<SortField>("name");
+  const [selectedField] = useState<SortField>("name");
 
   if (!isOpen) return null;
 
-  const addSortField = () => {
+  () => {
     if (!sortCriteria.some((c) => c.field === selectedField)) {
       setSortCriteria([
         ...sortCriteria,
@@ -62,7 +62,7 @@ export const SortPanel: React.FC<Props> = ({ sortCriteria, setSortCriteria, isOp
     onClose();
   };
 
-  const getSortOption = (criterion: SortCriterion) => {
+   (criterion: SortCriterion) => {
     const option = sortOptions.find(opt => opt.field === criterion.field);
     if (!option) return "";
     
